@@ -1,5 +1,16 @@
-function pixelBoard() {
+function colorPalette() {
+    elementSection = document.getElementById('color-palette');
 
+    for (let i = 0; i < 4; i += 1) {
+        let elementDiv = document.createElement('div');
+        elementDiv.className = 'color';
+        elementSection.appendChild(elementDiv);
+    }
+}
+
+colorPalette();
+
+function pixelBoard() {
     main = document.getElementById('main');
     for (let i = 0; i < 5; i += 1) {
         let elementSection = document.createElement('section');
@@ -10,7 +21,6 @@ function pixelBoard() {
     elementSection = document.querySelectorAll('#pixel-board');
 
     for (let j = 0; j < elementSection.length; j += 1) {
-
         for (let k = 0; k < elementSection.length; k += 1) {
             let elementDiv = document.createElement('div');
             elementDiv.className = 'pixel';
