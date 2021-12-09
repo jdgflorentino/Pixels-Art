@@ -18,3 +18,18 @@
 .color:nth-child(4) {
     background-color: #7AF9FA;
 }
+
+#pixel-board {
+    padding: auto;
+    margin: auto;
+    width: auto;
+    height: auto;
+}
+
+.pixel {
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-color: white;
+}
