@@ -5,7 +5,12 @@ function colorPalette() {
         let elementDiv = document.createElement('div');
         elementDiv.className = 'color';
         elementSection.appendChild(elementDiv);
+
     }
+
+    let elementDiv = document.querySelector('.color');
+    elementDiv.className = 'color selected';
+
 }
 
 colorPalette();
