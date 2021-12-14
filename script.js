@@ -5,33 +5,41 @@ function colorPalette() {
         let elementDiv = document.createElement('div');
         elementDiv.className = 'color';
         elementSection.appendChild(elementDiv);
-
     }
 
     let elementDiv = document.querySelector('.color');
     elementDiv.className = 'color selected';
-
 }
 
 colorPalette();
 
 function pixelBoard() {
-    main = document.getElementById('main');
-    for (let i = 0; i < 5; i += 1) {
-        let elementSection = document.createElement('section');
-        elementSection.id = 'pixel-board';
-        main.appendChild(elementSection);
-    }
+    let main = document.getElementById('main');
+    let elementSection = document.createElement('section');
+    elementSection.id = 'pixel-board';
+    main.appendChild(elementSection);
 
-    elementSection = document.querySelectorAll('#pixel-board');
-
-    for (let j = 0; j < elementSection.length; j += 1) {
-        for (let k = 0; k < elementSection.length; k += 1) {
-            let elementDiv = document.createElement('div');
-            elementDiv.className = 'pixel';
-            elementSection[j].appendChild(elementDiv);
-        }
+    for (let i = 0; i < 25; i += 1) {
+        let elementDiv = document.createElement('div');
+        elementDiv.className = 'pixel';
+        elementSection.appendChild(elementDiv);
     }
 }
 
 pixelBoard();
+
+function colorSelected() {
+    let elementColor = document.getElementsByClassName('color');
+
+    for (let i = 0; i < elementColor.length; i += 1) {
+        elementColor[i].addEventListener('click', function(event) {
+            let elementSelected = document.getElementsByClassName('selected')[0];
+            elementSelected.classList.remove('selected');
+            event.target.classList.add('selected');
+
+        });
+    }
+
+};
+
+colorSelected();

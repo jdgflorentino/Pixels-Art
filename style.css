@@ -22,10 +22,8 @@
 }
 
 #pixel-board {
-    padding: auto;
-    margin: auto;
-    width: auto;
-    height: auto;
+    width: 210px;
+    height: 225px;
 }
 
 .pixel {
