@@ -1,9 +1,12 @@
 function colorPalette() {
-    elementSection = document.getElementById('color-palette');
+    const color = ['black', '#FAC2A0', '#FAE46E', '#7AF9FA'];
 
-    for (let i = 0; i < 4; i += 1) {
+
+    for (let i = 0; i < color.length; i += 1) {
+        let elementSection = document.querySelector('#color-palette');
         let elementDiv = document.createElement('div');
         elementDiv.className = 'color';
+        elementDiv.style.backgroundColor = color[i];
         elementSection.appendChild(elementDiv);
     }
 
@@ -43,3 +46,14 @@ function colorSelected() {
 };
 
 colorSelected();
+
+function pixelSelected() {
+
+    let colorSelected = document.querySelector('#color-selected');
+    let pixelBoard = document.querySelector('#pixel-board');
+
+    pixelBoard.addEventListener('click', function() {
+
+
+    })
+}
