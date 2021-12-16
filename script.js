@@ -1,7 +1,6 @@
 function colorPalette() {
     const color = ['black', '#FAC2A0', '#FAE46E', '#7AF9FA'];
 
-
     for (let i = 0; i < color.length; i += 1) {
         let elementSection = document.querySelector('#color-palette');
         let elementDiv = document.createElement('div');
@@ -39,21 +38,21 @@ function colorSelected() {
             let elementSelected = document.getElementsByClassName('selected')[0];
             elementSelected.classList.remove('selected');
             event.target.classList.add('selected');
-
         });
     }
-
-};
+}
 
 colorSelected();
 
 function pixelSelected() {
-
-    let colorSelected = document.querySelector('#color-selected');
     let pixelBoard = document.querySelector('#pixel-board');
 
-    pixelBoard.addEventListener('click', function() {
+    pixelBoard.addEventListener('click', function(event) {
+        let colorSelected = document.querySelector('.color.selected');
 
-
-    })
+        let color = colorSelected.style.backgroundColor;
+        event.target.style.backgroundColor = color;
+    });
 }
+
+pixelSelected();
