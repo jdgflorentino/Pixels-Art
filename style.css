@@ -7,16 +7,16 @@
 
 #pixel-board {
     width: 210px;
-    height: 230px;
-    display: block;
+    height: 210px;
+    display: inline-block;
 }
 
 .pixel {
     border: 1px solid black;
     width: 40px;
     height: 40px;
-    float: left;
     background-color: white;
+    display: inline-block;
 }
 
 #section-button {
