@@ -1,34 +1,49 @@
 function colorPalette() {
-    const color = ['black', '#FAC2A0', '#FAE46E', '#7AF9FA'];
 
-    for (let i = 0; i < color.length; i += 1) {
-        let elementSection = document.querySelector('#color-palette');
+    let letters = '0123456789ABCDEF';
+    let palette = ['black'];
+    let color = '#';
+
+    for (let j = 1; j <= 3; j++) {
+
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        palette[j] = color;
+        color = '#';
+
+    }
+
+    for (let i = 0; i < palette.length; i += 1) {
+        const elementSection = document.querySelector('#color-palette');
         let elementDiv = document.createElement('div');
         elementDiv.className = 'color';
-        elementDiv.style.backgroundColor = color[i];
+        elementDiv.style.backgroundColor = palette[i];
         elementSection.appendChild(elementDiv);
     }
 
-    let elementDiv = document.querySelector('.color');
+    const elementDiv = document.querySelector('.color');
     elementDiv.className = 'color selected';
 }
 
 colorPalette();
 
-function pixelBoard() {
-    let main = document.getElementById('main');
-    let elementSection = document.createElement('section');
+function pixelBoard(num, boardWidth) {
+    const main = document.getElementById('main');
+    const elementSection = document.createElement('section');
     elementSection.id = 'pixel-board';
+    elementSection.style.width = boardWidth;
+    elementSection.style.height = boardWidth;
     main.appendChild(elementSection);
 
-    for (let i = 0; i < 25; i += 1) {
+    for (let i = 0; i < num; i += 1) {
         let elementDiv = document.createElement('div');
         elementDiv.className = 'pixel';
         elementSection.appendChild(elementDiv);
     }
 }
 
-pixelBoard(25);
+pixelBoard(25, 210);
 
 function colorSelected() {
     let elementColor = document.getElementsByClassName('color');
@@ -93,27 +108,12 @@ buttonBoard.innerText = 'VQV';
 sectionButton.appendChild(inputBoard);
 sectionButton.appendChild(buttonBoard);
 
-function boardRemoved() {
+function boardChanged() {
     let buttonBoard = document.querySelector('#generate-board');
 
     buttonBoard.addEventListener('click', function() {
         let board = document.getElementById('pixel-board');
         board.parentNode.removeChild(board);
-
-    });
-}
-
-boardRemoved();
-
-function limite() {
-    let main = document.getElementById('main');
-    let board = document.createElement('section');
-    board.id = 'pixel-board';
-    main.appendChild(board);
-    let inputBoard = document.getElementById('board-size');
-    let buttonBoard = document.getElementById('generate-board');
-
-    buttonBoard.addEventListener('click', function() {
 
         if (inputBoard.value > 0) {
             if (inputBoard.value < 5) {
@@ -122,20 +122,14 @@ function limite() {
                 inputBoard.value = 50;
             }
         } else {
-            alert('Board inválido!');
+            alert('Board Inválido!');
         }
 
-        let width = inputBoard.value * 42;
-        board.style.width = width + 'px';
         let num = inputBoard.value ** 2;
+        let boardWidth = inputBoard.value * 42 + 'px';
 
-        for (let i = 0; i < num; i += 1) {
-            let elementDiv = document.createElement('div');
-            elementDiv.className = 'pixel';
-            board.appendChild(elementDiv);
-            inputBoard.value = '';
-        }
+        pixelBoard(num, boardWidth);
     });
 }
 
-limite();
+boardChanged();
